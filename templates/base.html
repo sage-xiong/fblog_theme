@@ -2,14 +2,14 @@
 <html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
 
 <head>
-  <!-- {% block head %} -->
+  {% block head %}
   <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
   <meta charset="utf-8" />
   <meta name="generator" content="Pelican" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="../static/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-  <script src="../static/js/bootstrap.bundle.min.js"></script>
-  <!-- 
+  <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+  <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.bundle.min.js"></script>
+
   {% if FEED_ALL_ATOM %}
   <link
     href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}"
@@ -47,8 +47,8 @@
     href="{{ FEED_DOMAIN }}/{% if TAG_FEED_RSS_URL %}{{ TAG_FEED_RSS_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_RSS.format(slug=tag.slug) }}{% endif %}"
     type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
   {% endif %}
-  -->
-  <!-- {% endblock head %} -->
+
+  {% endblock head %}
 </head>
 
 <body id="index" class="home">
