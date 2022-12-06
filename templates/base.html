@@ -8,7 +8,6 @@
   <meta name="generator" content="Pelican" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-  <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.bundle.min.js"></script>
 
   {% if FEED_ALL_ATOM %}
   <link
@@ -57,14 +56,10 @@
   <main class="container">
     {% block content %}
     {% endblock %}
-    {% include "partial/footer.html" %}
-    <footer id="contentinfo" class="body">
-      <address id="about" class="vcard body">
-        Proudly powered by <a href="https://getpelican.com/">Pelican</a>,
-        which takes great advantage of <a href="https://www.python.org/">Python</a>.
-      </address><!-- /#about -->
-    </footer><!-- /#contentinfo -->
   </main>
+
+  {% include "partial/footer.html" %}
+  <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
