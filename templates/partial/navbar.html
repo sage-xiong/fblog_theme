@@ -1,27 +1,25 @@
 <div class="container">
-  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-    <a href="{{ SITEURL }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-      <!-- TODO: 增加主题LOGO -->
-      <svg class="bi" width="40" height="32" fill="currentColor">
-        <use xlink:href="#bootstrap"></use>
-      </svg>
-      <span class="fs-4">{{ SITENAME }}</span>
-    </a>
-
-    <ul class="nav nav-pills">
-      {% for title, link in MENUITEMS %}
-      <li><a href="{{ link }}">{{ title }}</a></li>
-      {% endfor %}
-      {% if DISPLAY_PAGES_ON_MENU %}
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="{{ SITEURL }}" class="navbar-brand">{{ SITENAME }}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        {% for title, link in MENUITEMS %}
+        <li class="nav-item"><a class="nav-link" href="{{ title }}">{{ title }}</a></li>
+        {% endfor %}
+        {% if DISPLAY_PAGES_ON_MENU %}
         {% for p in pages %}
-        <li class="nav-item"><a href="{{ SITEURL }}/{{ p.url }}" class="=nav-link">{{ p.title }}</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
         {% endfor %}
-      {% endif %}
-      {% if DISPLAY_CATEGORIES_ON_MENU %}
+        {% endif %}
+        {% if DISPLAY_CATEGORIES_ON_MENU %}
         {% for cat, null in categories %}
-        <li class="nav-item"><a href="{{ SITEURL }}/{{ cat.url }}" class="nav-link">{{ cat }}</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
         {% endfor %}
-      {% endif %}
-    </ul>
-  </header>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
 </div>
