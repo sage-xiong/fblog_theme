@@ -2,47 +2,17 @@
 
 {% block content %}
 <div class="container">
-    {% block content_title %}
-    {% endblock %}
-
-    <div class="row g-5">
-        <div class="col-8">
-            <article>
-                {% for article in articles_page.object_list %}
-                <header>
-                    <div class="post-title">
-                        <h1 class="title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
-                    </div>
-                    <div class="post-meta">
-                        <div class="date">
-                            <span class="posted-on">
-                                <i class=""></i>
-                                <time datetime="">{{ article.date|strftime('%Y-%M-%d %H:%m') }}</time>
-                            </span>
-                        </div>
-                    </div>
-                </header>
-                <div>
-                {% if summarise or article.metadata['summary'] or SUMMARY_MAX_LENGTH %}
-                    {% if article.featured_image %}<img src="{{ article.featured_image }}">{% endif %}
-                    <div>{{ article.summary }}</div>
-                    {% if article.content != article.summary %}<br>
-                    <a class="btn btn-primary" href="{{ SITEURL }}/{{ article.url }}">Continue reading</a>
-                    {% endif %}
-                {% else %}
-                    {{ article.content }}
-                {% endif %}
-                </div><hr />
-                {% endfor %}
-            </article>
-            {% if articles_page.has_other_pages() %}
-                {% include "partial/pagination.html" %}
-            {% endif %}
-            {% include "partial/pagination.html" %}
+    {% block content_title %}{% endblock %}
+    <div class="row justify-content-center">
+        <div class="col-md-4 col-6 align-items-center">
+        <img src="{{ SITEURL }}/theme/images/avatar.jpg" class="img-fluid rounded-circle mx-auto d-block" alt="avatar">
         </div>
-        <div class="col-4">
-            {% include "partial/sider.html" %}
-        </div>
+    </div>  
+    <div class="row text-center">
+        <div class="col">TODO: 个人简介</div>
+    </div>
+    <div class="row">
+        <div class="col">TODO: 描述</div>
     </div>
 </div>
 {% endblock content %}
