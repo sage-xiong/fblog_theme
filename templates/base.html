@@ -50,13 +50,11 @@
   {% endblock head %}
 </head>
 
-<body id="index" class="home">
+<body id="index" class="bg-dark text-light">
   {% include "partial/navbar.html" %}
 
-  <main class="container">
-    {% block content %}
-    {% endblock %}
-  </main>
+  {% block content %}
+  {% endblock %}
 
   {% include "partial/footer.html" %}
   <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.bundle.min.js"></script>
