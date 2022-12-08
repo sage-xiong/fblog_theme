@@ -1,8 +1,16 @@
 {% extends "index.html" %}
 
-{% block title %}{{ SITENAME }} - {{ category }} category{% endblock %}
+{% block title %}{{ SITENAME }} - {{ category }}{% endblock %}
 
-{% block content_title %}
-<h2>Articles in the {{ category }} category</h2>
+{% block content %}
+<div class="container mb-auto">
+    <h1 class="text-center my-5 py-3">{{ category }}</h1>
+    {% for article in articles_page.object_list %}
+    <div class="row justify-content-evenly text-center fs-4 mb-3">
+        <div class="col-4">{{ article.locale_date }}</div>
+        <div class="col-6"><a href="{{ SITEURL }}/{{ article.url }}" class="link-light">{{ article.title }}</a></div>
+    </div>
+    {% endfor %}
+</div>
+{% include "partial/pagination.html" %}
 {% endblock %}
-
