@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 
-{% block title %}{{ SITENAME }} - Archives{% endblock %}
+{% block title %}{{ SITENAME }} - 博客{% endblock %}
 
 {% block content %}
-<h1>Archives for {{ SITENAME }}</h1>
-
-<dl>
-{% for article in dates %}
-    <dt>{{ article.locale_date }}</dt>
-    <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
-{% endfor %}
-</dl>
+<div class="container mb-auto">
+    <h1 class="text-center my-5 py-3">博客</h1>
+    {% for article in articles %}
+    <div class="row justify-content-evenly text-center fs-4 mb-3">
+        <div class="col-4">{{ article.locale_date }}</div>
+        <div class="col-6"><a href="{{ SITERUL }}/{{ article.url }}" class="link-light">{{ article.title }}</a></div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
