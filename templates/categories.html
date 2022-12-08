@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}{{ SITENAME }} - Categories{% endblock %}
+{% block title %}{{ SITENAME }} - 文章分类{% endblock %}
 
 {% block content %}
-    <h1>Categories on {{ SITENAME }}</h1>
-    <ul>
+<div class="container mb-auto">
+    <h2 class="text-center my-5 p-3">文章分类</h2>
     {% for category, articles in categories|sort %}
-        <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a> ({{ articles|count }})</li>
+    <div class="row justify-content-evenly text-center fs-4 mb-3">
+        <div class="col"><a href="{{ SITEURL }}/{{ category.url }}" class="link-light">{{ category }}</a> - ({{ articles|count }})</div>
+    </div>
     {% endfor %}
-    </ul>
+</div>
 {% endblock %}
