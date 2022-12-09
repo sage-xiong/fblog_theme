@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 
-{% block title %}{{ SITENAME }} - {{ period | reverse | join(' ') }} archives{% endblock %}
+{% block title %}{{ SITENAME }} - {{ period | reverse | join(' ') }} 归档{% endblock %}
 
 {% block content %}
-<h1>Archives for {{ period | reverse | join(' ') }}</h1>
-
-<dl>
-{% for article in dates %}
-    <dt>{{ article.locale_date }}</dt>
-    <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
-{% endfor %}
-</dl>
+<div class="container mb-auto justify-content-center">
+    <h1 class="text-center my-5 py-3">{{ period | reverse | join(' ') }}归档</h1>
+    {% for article in dates %}
+    <div class="row justify-content-evenly text-nowrap fs-4 mb-3">
+        <div class="col-5 col-md-6 text-end">{{ article.locale_date }}</div>
+        <div class="col-5 col-md-6"><a href="{{ SITEURL }}/{{ article.url }}" class="link-light">{{ article.title }}</a></div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
