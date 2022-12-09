@@ -1,8 +1,7 @@
-{% extends "index.html" %}
+{% extends "archives.html" %}
 
-{% block title %}{{ SITENAME }} - Articles by {{ author }}{% endblock %}
+{% block title %}{{ SITENAME }} - 作者: {{ author }}{% endblock %}
 
 {% block content_title %}
-<h2>Articles by {{ author }}</h2>
+<h1 class="text-center my-5 py-3">{{ author }}</h1>
 {% endblock %}
-
