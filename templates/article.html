@@ -22,46 +22,42 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-  <div class="row g-5">
-    <div class="col-8">
-      <section id="content" class="body">
-        <header>
-          <h1 class="entry-title">
-          <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h1>
-          {% import 'translations.html' as translations with context %}
-          {{ translations.translations_for(article) }}
-        </header>
-        <div class="post-meta">
-          <time class="published" datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
-          {% if article.modified %}
-          <time class="modified" datetime="{{ article.modified.isoformat() }}">{{ article.locale_modified }}</time>
-          {% endif %}
-          {% if article.authors %}
-          <address class="vcard author">
-            By {% for author in article.authors %}
-              <a class="url fn" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
-              {% endfor %}
-          </address>
-          {% endif %}
-          {% if article.category %}
-          <div class="category">
-            Category: <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+<div class="container mb-auto">
+  <section id="content">
+    <div class="my-1">
+    <header>
+      <div class="row">
+      <div class="col-12 text-center"><h1 class="display-3"><a href="{{ SITEURL }}/{{ article.url }}" title="转到{{ article.title|striptags }}" class="link-light">{{ article.title }}</a></h1></div>
+      </div>
+      <div class="row justify-content-center text-center my-1 py-1">
+        <div class="col-md-4"><time class="" datetime="{{ article.date.isoformat() }}">发表于: {{ article.locale_date }}</time></div>
+        {% if article.modified %}
+          <div class="col-md-4"><time class="" datetime="{{ article.modified.isoformat() }}">修改于: {{ article.locale_modified }}</time></div>
+        {% endif %}
+        <!-- {% if article.authors %}
+          <div class="col-2">
+          {% for author in article.authors %}
+          <address class="author"><a class="link-light" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></address>
+          {% endfor %}
           </div>
-          {% endif %}
-          {% if article.tags %}
-          <div class="tags">
-            Tags:
+        {% endif %} -->
+        {% if article.category %}
+          <div class="col-md-4">分类于: <a href="{{ SITEURL }}/{{ article.category.url }}" class="link-light">{{ article.category }}</a></div>
+        {% endif %}
+        {% if article.tags %}
+          <div class="col-md-4">
+            关键词: 
             {% for tag in article.tags %}
-              <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+            <a href="{{ SITEURL }}/{{ tag.url }}" class="link-light">{{ tag }}</a>{% if not loop.last %},{% endif %}
             {% endfor %}
           </div>
-          {% endif %}
-        </div><!-- /.post-info -->
-        <div class="entry-content">{{ article.content }}</div><!-- /.entry-content -->
-      </section>
+        {% endif %}
+      </div>
+    </header>
     </div>
-    <div class="col-4">{% include "partial/sider.html" %}</div>
-  </div>
+    <div class="row justify-content-center mx-auto">
+      <div class="col-md-10 text-justify my-3">{{ article.content }}</div>
+    </div> 
+  </section>
 </div>
 {% endblock %}
