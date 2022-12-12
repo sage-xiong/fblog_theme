@@ -30,9 +30,9 @@
       <div class="col-12 text-center"><h1 class="display-3"><a href="{{ SITEURL }}/{{ article.url }}" title="转到{{ article.title|striptags }}" class="link-light">{{ article.title }}</a></h1></div>
       </div>
       <div class="row justify-content-center text-center my-1 py-1">
-        <div class="col-md-4"><time class="" datetime="{{ article.date.isoformat() }}">发表于: {{ article.locale_date }}</time></div>
+        <div class="col-md-3"><time class="" datetime="{{ article.date.isoformat() }}">发表于: {{ article.locale_date }}</time></div>
         {% if article.modified %}
-          <div class="col-md-4"><time class="" datetime="{{ article.modified.isoformat() }}">修改于: {{ article.locale_modified }}</time></div>
+          <div class="col-md-3"><time class="" datetime="{{ article.modified.isoformat() }}">修改于: {{ article.locale_modified }}</time></div>
         {% endif %}
         <!-- {% if article.authors %}
           <div class="col-2">
@@ -42,10 +42,10 @@
           </div>
         {% endif %} -->
         {% if article.category %}
-          <div class="col-md-4">分类于: <a href="{{ SITEURL }}/{{ article.category.url }}" class="link-light">{{ article.category }}</a></div>
+          <div class="col-md-3">分类于: <a href="{{ SITEURL }}/{{ article.category.url }}" class="link-light">{{ article.category }}</a></div>
         {% endif %}
         {% if article.tags %}
-          <div class="col-md-4">
+          <div class="col-md-3">
             关键词: 
             {% for tag in article.tags %}
             <a href="{{ SITEURL }}/{{ tag.url }}" class="link-light">{{ tag }}</a>{% if not loop.last %},{% endif %}
