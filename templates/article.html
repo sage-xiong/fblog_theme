@@ -34,13 +34,6 @@
         {% if article.modified %}
           <div class="col-md-3"><time class="" datetime="{{ article.modified.isoformat() }}">修改于: {{ article.locale_modified }}</time></div>
         {% endif %}
-        <!-- {% if article.authors %}
-          <div class="col-2">
-          {% for author in article.authors %}
-          <address class="author"><a class="link-light" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></address>
-          {% endfor %}
-          </div>
-        {% endif %} -->
         {% if article.category %}
           <div class="col-md-3">分类于: <a href="{{ SITEURL }}/{{ article.category.url }}" class="link-light">{{ article.category }}</a></div>
         {% endif %}
@@ -56,7 +49,7 @@
     </header>
     </div>
     <div class="row justify-content-center mx-auto">
-      <div class="col-md-10 text-justify my-3">{{ article.content }}</div>
+      <div class="col-md-9 text-justify">{{ article.content }}</div>
     </div> 
   </section>
 </div>
