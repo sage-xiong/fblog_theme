@@ -3,23 +3,17 @@
 {% block title %}{{ SITENAME }} - 博客{% endblock %}
 
 {% block content %}
-<!-- <div class="container mb-auto">
+<div class="container mb-auto">
     {% block content_title %}
     <h1 class="text-center">博客</h1>
     {% endblock %}
     {% for article in dates %}
-    <div class="row">
+    <div class="row mb-3 fs-4">
         <div class="col-5 col-md-6 text-end">{{ article.locale_date }}</div>
         <div class="col-7 col-md-6 text-nowrap">
             <a href="{{ SITERUL }}/{{ article.url }}" class="link-light">{{ article.title }}</a>
         </div>
     </div>
     {% endfor %}
-</div> -->
-<h1 class="text-center">博客</h1>
-{% for article in dates %}
-<div class="d-flex justify-content-center fs-4">
-    {{ article.locale_date }}<a href="{{ SITEURL }}/{{ article.url }}" class="link-light">{{ article.title }}</a>
 </div>
-{% endfor %}
 {% endblock %}
