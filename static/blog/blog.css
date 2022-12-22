@@ -29,9 +29,3 @@ table {
     border: 1px solid whitesmoke;
     text-align: justify;
 }
-
-pre {
-    padding-left: 3rem;
-    padding-right: 3rem;
-    background-color: black;
-}
