@@ -1,0 +1,16 @@
+<header class="mb-auto">
+    <div>
+        <a class="h3 float-md-start mb-0 text-bg-dark" href="{{ SITEURL }}">{{ SITENAME }}</a>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+            {% if DISPLAY_PAGES_ON_MENU %}
+            {% for p in pages %}
+            <a href="{{ SITEURL }}/{{ p.url }}" class="nav-link fw-bold py-1 px-0">{{ p.title }}</a>
+            {% endfor %}
+            {% endif %}
+            {% for title, link in MENUITEMS %}
+            <a href="{{ SITEURL }}/{{ link }}" class="nav-link fw-bold py-1 px-0">{{ title }}</a>
+            {% endfor %}
+            <!-- TODO: 增加分类显示 -->
+        </nav>
+    </div>
+</header>
